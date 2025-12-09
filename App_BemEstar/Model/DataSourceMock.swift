@@ -37,3 +37,10 @@ let goalMock: [GoalType] = [
     GoalType(id: 7, icone: "moon.zzz.fill", titulo:"Descanso", descricao: "Dormir 8h por noite"),
     GoalType(id: 8, icone: "hare.fill", titulo:"Exercicio", descricao: "Correr 5km duas vezes na semana"),
     GoalType(id: 9, icone: "goforward.60", titulo:"Redes sociais", descricao: "Usar o celular porapenas 1h")]
+
+
+let mockUsers: [LoginType] = [
+    LoginType(username: "Admin", password: "abc123"),
+    LoginType(username: "Daniel", password: "pass123"),
+    LoginType(username: "Maria", password: "mypassword"),
+    LoginType(username: "jose", password: "123")]

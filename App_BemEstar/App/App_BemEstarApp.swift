@@ -11,7 +11,8 @@ import SwiftUI
 struct App_BemEstarApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            LoginView()
         }
     }
 }
