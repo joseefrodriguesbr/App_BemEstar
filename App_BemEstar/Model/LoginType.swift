@@ -6,17 +6,26 @@
 //
 
 import Foundation
-
 import CryptoKit
-struct LoginType {
+
+struct LoginType: Identifiable, Hashable {
+    // Identifiable e Hashable para usar no ForEach e como key.
+
+    var id: String { username }
+    
     public var username: String
     public var passwordHash: String
     
-    init(username: String, password: String)
-    {
+
+    init(username: String, password: String) {
         self.username = username
         self.passwordHash = LoginType.sha256(password)
     }
+    
+    // init(username: String, passwordHash: String) {
+    //     self.username = username
+    //     self.passwordHash = passwordHash
+    // }
     
     public static func sha256(_ input: String) -> String {
         let data = Data(input.utf8)

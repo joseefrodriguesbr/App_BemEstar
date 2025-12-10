@@ -1,13 +1,17 @@
+
 //
-//  ContentView.swift
-//  App_BemEstar
+// ContentView.swift
+// App_BemEstar
 //
-//  Created by user288578 on 12/7/25.
+// Created by user288578 on 12/7/25.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    // Referencia a UserMock
+    @Environment(UserMock.self) var userMock
+
     var body: some View {
         VStack {
             NavigationBar().padding(.horizontal,15)
@@ -26,5 +30,7 @@ struct ContentView: View {
 }
 
 #Preview {
+    // UserMock no ambiente
     ContentView()
+        .environment(UserMock())
 }

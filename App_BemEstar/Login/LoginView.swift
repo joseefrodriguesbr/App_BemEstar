@@ -1,20 +1,24 @@
+
 //
-//  LoginView.swift
-//  App_BemEstar
+// LoginView.swift
+// App_BemEstar
 //
-//  Created by user288578 on 12/8/25.
+// Created by user288578 on 12/8/25.
 //
 
 import SwiftUI
+import CryptoKit
 
 struct LoginView: View {
+    // Referencia a UserMock
+    @Environment(UserMock.self) var userMock
+
     @State private var username = ""
     @State private var password = ""
     @State private var wrongUser = 0
     @State private var wrongPass = 0
     @State private var showLoginScreen = false
     
-    //@available(*, deprecated: )
     var body: some View {
         NavigationStack{
             ZStack {
@@ -64,23 +68,23 @@ struct LoginView: View {
                 }
             }
         }
-        
-        
-        
-  
-        
     }
     
     func authenticateUser(username: String, password: String) {
-        guard let user = mockUsers.first(where: { $0.username == username }) else {
+        // Busca na lista do UserMock
+        guard let user = userMock.mockUsers.first(where: { $0.username == username }) else {
             wrongUser = 2
             return
         }
         wrongUser = 0
+        
         let hashedAttempt = LoginType.sha256(password)
+        
         if hashedAttempt == user.passwordHash {
             wrongPass = 0
             showLoginScreen = true
+            // Define o usuário logado atualmente no UserMock
+            userMock.currentUsername = user.username
         } else {
             wrongPass = 2
         }
@@ -88,5 +92,7 @@ struct LoginView: View {
 }
 
 #Preview {
+    // Referencia a UserMock no ambiente
     LoginView()
+        .environment(UserMock())
 }
