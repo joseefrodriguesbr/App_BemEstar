@@ -12,8 +12,11 @@ Aplicativo iOS com SwiftUI desenvolvido no X-Code
 
 ### Requisitos atendidos:
 ✅ Implementação da função de scroll (rolagem da tela do APP) (Aula 3)
+
 ✅ Troca de nome na tela de navegação superior (Navigation Bar) (Aula 3)
+
 ✅ Alteração da NavigationBar para que os usuários sejam extraídos do UsersMock; (Aula 4)
+
 ✅ Troca de nome do usuário na tela de navegação superior (Navigation Bar) (Aula 4)
 
 
